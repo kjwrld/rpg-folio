@@ -11,14 +11,14 @@ export default function RenderLayer({ spriteSheet }) {
   return (
     <div className={styles.fullScreenContainer}>
       <div className={styles.gameScreen}>
+        <Sprite image={spriteSheet} frameCoord={"2x0"} />
+
         <Sprite image={spriteSheet} frameCoord={"0x10"} />
         <Sprite image={spriteSheet} frameCoord={"2x10"} />
         <Sprite image={spriteSheet} frameCoord={"4x10"} />
-
         <Sprite image={spriteSheet} frameCoord={"0x12"} />
         <Sprite image={spriteSheet} frameCoord={"2x12"} />
         <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
         {/* <Sprite image={spriteSheet} frameCoord={"0x0"} />
         <Sprite image={spriteSheet} frameCoord={"4x0"} />
 
@@ -45,36 +45,7 @@ export default function RenderLayer({ spriteSheet }) {
         <Sprite image={spriteSheet} frameCoord={"0x12"} />
         <Sprite image={spriteSheet} frameCoord={"2x12"} />
         <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} /> */}
-        {/* <Sprite image={spriteSheet} frameCoord={"8x0"} /> */}
-        {/* <Sprite image={spriteSheet} frameCoord={"16x0"} /> */}
+      */}
       </div>
     </div>
   );

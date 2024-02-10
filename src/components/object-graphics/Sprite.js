@@ -32,10 +32,10 @@ export function Sprite({ image, frameCoord, size = 32 }) {
       size //How large to scale it (Y)
     );
     // Lost
-    ctx.beginPath();
-    ctx.strokeStyle = "#f00"; // some color/style
-    ctx.lineWidth = 1;
-    ctx.strokeRect(0, 0, tileSheetX * CELL_SIZE, tileSheetY * CELL_SIZE);
+    // ctx.beginPath();
+    // ctx.strokeStyle = "#f00"; // some color/style
+    // ctx.lineWidth = 1;
+    // ctx.strokeRect(0, 0, tileSheetX * CELL_SIZE, tileSheetY * CELL_SIZE);
   }, [image, frameCoord, size]);
 
   return <canvas width={size} height={size} ref={canvasRef} />;
