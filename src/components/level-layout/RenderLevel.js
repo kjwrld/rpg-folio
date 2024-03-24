@@ -1,51 +1,50 @@
+import {
+  CELL_SIZE,
+  // LEVEL_THEMES,
+  // THEME_BACKGROUNDS,
+} from "../../helpers/constants";
+// import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 import Sprite from "../object-graphics/Sprite";
 import styles from "./RenderLevel.module.css";
+// import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 
 export default function RenderLayer({ spriteSheet }) {
   const level = {
+    // theme: "LEVEL_THEME.MYSTERY_DUNGEON",
+    // tileWidth: 10,
+    // tileHeight: 5,
     placements: [
-      { id: "DL-001", x: 0, y: 1, frameCoord: "0x10" },
-      { id: "DL-002", x: 2, y: 1, frameCoord: "0x10" },
+      // Level 0
+      { id: "mona", x: 2, y: 0, frameCoord: "2x0" },
+      { id: "DL-002", x: 4, y: 1, frameCoord: "0x10" },
     ],
   };
   return (
     <div className={styles.fullScreenContainer}>
+      {/* <Sprite image={spriteSheet} frameCoord={placement.frameCoord} /> */}
       <div className={styles.gameScreen}>
-        <Sprite image={spriteSheet} frameCoord={"2x0"} />
+        {level.placements.map((placement) => {
+          const x = placement.x * CELL_SIZE + "px";
+          const y = placement.x * CELL_SIZE + "px";
+          const style = {
+            position: "absolute",
+            transform: `translate3d(${x}, ${y}, 0)`,
+          };
 
+          return (
+            <div key={placement.id} style={style}>
+              <Sprite image={spriteSheet} frameCoord={placement.frameCoord} />
+            </div>
+          );
+        })}
+
+        {/* KJ running DL
         <Sprite image={spriteSheet} frameCoord={"0x10"} />
         <Sprite image={spriteSheet} frameCoord={"2x10"} />
         <Sprite image={spriteSheet} frameCoord={"4x10"} />
         <Sprite image={spriteSheet} frameCoord={"0x12"} />
         <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-        {/* <Sprite image={spriteSheet} frameCoord={"0x0"} />
-        <Sprite image={spriteSheet} frameCoord={"4x0"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x2"} />
-        <Sprite image={spriteSheet} frameCoord={"2x2"} />
-        <Sprite image={spriteSheet} frameCoord={"4x2"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x4"} />
-        <Sprite image={spriteSheet} frameCoord={"2x4"} />
-        <Sprite image={spriteSheet} frameCoord={"4x4"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x6"} />
-        <Sprite image={spriteSheet} frameCoord={"2x6"} />
-        <Sprite image={spriteSheet} frameCoord={"4x6"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x8"} />
-        <Sprite image={spriteSheet} frameCoord={"2x8"} />
-        <Sprite image={spriteSheet} frameCoord={"4x8"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x10"} />
-        <Sprite image={spriteSheet} frameCoord={"2x10"} />
-        <Sprite image={spriteSheet} frameCoord={"4x10"} />
-
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} />
-      */}
+        <Sprite image={spriteSheet} frameCoord={"4x12"} /> */}
       </div>
     </div>
   );
