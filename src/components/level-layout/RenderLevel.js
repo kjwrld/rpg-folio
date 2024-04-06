@@ -1,18 +1,11 @@
-import {
-  CELL_SIZE,
-  // LEVEL_THEMES,
-  // THEME_BACKGROUNDS,
-} from "../../helpers/constants";
-// import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
+import { CELL_SIZE, BACKGROUND_SHEET_SRC } from "../../helpers/constants";
+import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 import Sprite from "../object-graphics/Sprite";
 import styles from "./RenderLevel.module.css";
-// import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 
 export default function RenderLayer({ spriteSheet }) {
   const level = {
     // theme: "LEVEL_THEME.MYSTERY_DUNGEON",
-    // tileWidth: 10,
-    // tileHeight: 5,
     placements: [
       // Level 0
       { id: "mona", x: 2, y: 0, frameCoord: "2x0" },
@@ -22,6 +15,7 @@ export default function RenderLayer({ spriteSheet }) {
   return (
     <div className={styles.fullScreenContainer}>
       {/* <Sprite image={spriteSheet} frameCoord={placement.frameCoord} /> */}
+      <LevelBackgroundTilesLayer image={BACKGROUND_SHEET_SRC} />
       <div className={styles.gameScreen}>
         {level.placements.map((placement) => {
           const x = placement.x * CELL_SIZE + "px";
