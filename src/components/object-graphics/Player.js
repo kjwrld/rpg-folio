@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useRef } from "react";
 import { CELL_SIZE } from "../../helpers/constants";
 
-export function Sprite({ image, frameCoord, size = 16 }) {
+export function Player({ image, frameCoord, size = 32 }) {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -31,15 +31,10 @@ export function Sprite({ image, frameCoord, size = 16 }) {
       size, //How large to scale it (X)
       size //How large to scale it (Y)
     );
-    // Lost
-    // ctx.beginPath();
-    // ctx.strokeStyle = "#f00"; // some color/style
-    // ctx.lineWidth = 1;
-    // ctx.strokeRect(0, 0, tileSheetX * CELL_SIZE, tileSheetY * CELL_SIZE);
   }, [image, frameCoord, size]);
 
   return <canvas width={size} height={size} ref={canvasRef} />;
 }
 
-const MemoizedSprite = React.memo(Sprite);
-export default MemoizedSprite;
+const MemoizedPlayer = React.memo(Player);
+export default MemoizedPlayer;

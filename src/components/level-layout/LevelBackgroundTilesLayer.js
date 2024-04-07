@@ -1,4 +1,4 @@
-export default function LevelBackgroundImageLayer({ image }) {
+export default function LevelBackgroundImageLayer({ level, image }) {
   return (
     <div
       style={{

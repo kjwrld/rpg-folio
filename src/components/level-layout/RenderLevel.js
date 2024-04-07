@@ -1,6 +1,7 @@
 import { CELL_SIZE, BACKGROUND_SHEET_SRC } from "../../helpers/constants";
 import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
 import Sprite from "../object-graphics/Sprite";
+import { Player } from "../object-graphics/Player";
 import styles from "./RenderLevel.module.css";
 
 export default function RenderLayer({ spriteSheet }) {
@@ -15,7 +16,7 @@ export default function RenderLayer({ spriteSheet }) {
   return (
     <div className={styles.fullScreenContainer}>
       {/* <Sprite image={spriteSheet} frameCoord={placement.frameCoord} /> */}
-      <LevelBackgroundTilesLayer image={BACKGROUND_SHEET_SRC} />
+      <LevelBackgroundTilesLayer level={level} image={BACKGROUND_SHEET_SRC} />
       <div className={styles.gameScreen}>
         {level.placements.map((placement) => {
           const x = placement.x * CELL_SIZE + "px";
@@ -27,7 +28,7 @@ export default function RenderLayer({ spriteSheet }) {
 
           return (
             <div key={placement.id} style={style}>
-              <Sprite image={spriteSheet} frameCoord={placement.frameCoord} />
+              <Player image={spriteSheet} frameCoord={placement.frameCoord} />
             </div>
           );
         })}
