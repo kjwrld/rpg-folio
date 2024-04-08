@@ -10,7 +10,7 @@ export function Sprite({ image, frameCoord, size = 16 }) {
     const canvasEl = canvasRef.current;
     const ctx = canvasEl.getContext("2d");
 
-    // clear out canvas stuff
+    // clear out canvas
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
 
     // coordinates
@@ -31,11 +31,6 @@ export function Sprite({ image, frameCoord, size = 16 }) {
       size, //How large to scale it (X)
       size //How large to scale it (Y)
     );
-    // Lost
-    // ctx.beginPath();
-    // ctx.strokeStyle = "#f00"; // some color/style
-    // ctx.lineWidth = 1;
-    // ctx.strokeRect(0, 0, tileSheetX * CELL_SIZE, tileSheetY * CELL_SIZE);
   }, [image, frameCoord, size]);
 
   return <canvas width={size} height={size} ref={canvasRef} />;

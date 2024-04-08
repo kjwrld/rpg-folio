@@ -4,7 +4,6 @@
   inset: 0;
   justify-content: center;
   position: absolute;
-  /* background-image: url("../../../public/background.png"); */
   overflow: hidden;
 }
 
@@ -12,7 +11,7 @@
   width: var(--game-viewport-width);
   height: var(--game-viewport-height);
   transform: scale(var(--pixel-size));
-
   outline: 2px solid red;
-  overflow: visible;
+  position: relative; /* Positioned relative to .fullScreenContainer */
+  overflow: visible; /* This will ensure content can extend outside */
 }

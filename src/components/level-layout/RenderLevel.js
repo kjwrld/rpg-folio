@@ -7,7 +7,7 @@ export default function RenderLayer({ spriteSheet, background }) {
     // theme: "LEVEL_THEME.MYSTERY_DUNGEON",
     placements: [
       // Level 0
-      { id: "mona", x: 2, y: 4, frameCoord: "2x0", size: 32 },
+      { id: "mona", x: -3.5, y: 2, frameCoord: "2x0", size: 32 },
       { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
     ],
   };

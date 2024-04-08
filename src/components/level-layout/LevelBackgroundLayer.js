@@ -8,29 +8,27 @@ function LevelBackgroundLayer({ level, background }) {
     const ctx = canvas.getContext("2d");
     const gameScreen = canvas.parentElement;
 
-    // Set the canvas size to match the parent (.gameScreen) size
-    const width = gameScreen.offsetWidth;
-    const height = gameScreen.offsetHeight;
-    canvas.width = width;
-    canvas.height = height;
-
-    // Load and draw the background image
+    // Assuming we will draw the image to match its natural size.
     const backgroundImage = new Image();
     backgroundImage.onload = function () {
-      // Draw the image on the canvas scaled to fit
-      ctx.drawImage(
-        backgroundImage,
-        -(width / 2),
-        -(height / 2),
-        width * 2,
-        height * 2
-      );
+      // Resize the canvas to the size of the image
+      canvas.width = backgroundImage.naturalWidth;
+      canvas.height = backgroundImage.naturalHeight;
+      ctx.drawImage(backgroundImage, 0, 0);
     };
     backgroundImage.src = background;
   }, [background]);
 
   return (
-    <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0 }} />
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+    />
   );
 }
 
