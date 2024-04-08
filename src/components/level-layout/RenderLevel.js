@@ -1,7 +1,11 @@
-import { CELL_SIZE, BACKGROUND_SHEET_SRC } from "../../helpers/constants";
+import {
+  CELL_SIZE,
+  SPRITE_SHEET_SRC,
+  BACKGROUND_SHEET_SRC,
+} from "../../helpers/constants";
 import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
+import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import Sprite from "../object-graphics/Sprite";
-import { Player } from "../object-graphics/Player";
 import styles from "./RenderLevel.module.css";
 
 export default function RenderLayer({ spriteSheet }) {
@@ -9,8 +13,8 @@ export default function RenderLayer({ spriteSheet }) {
     // theme: "LEVEL_THEME.MYSTERY_DUNGEON",
     placements: [
       // Level 0
-      { id: "mona", x: 2, y: 0, frameCoord: "2x0" },
-      { id: "DL-002", x: 4, y: 1, frameCoord: "0x10" },
+      { id: "mona", x: 2, y: 0, frameCoord: "2x0", size: 32 },
+      { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
     ],
   };
   return (
@@ -28,10 +32,15 @@ export default function RenderLayer({ spriteSheet }) {
 
           return (
             <div key={placement.id} style={style}>
-              <Player image={spriteSheet} frameCoord={placement.frameCoord} />
+              <Sprite
+                image={spriteSheet}
+                frameCoord={placement.frameCoord}
+                size={placement.size}
+              />
             </div>
           );
         })}
+        {/* <LevelPlacementsLayer level={level} image={SPRITE_SHEET_SRC} /> */}
 
         {/* KJ running DL
         <Sprite image={spriteSheet} frameCoord={"0x10"} />
