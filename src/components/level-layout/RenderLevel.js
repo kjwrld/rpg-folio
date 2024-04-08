@@ -1,14 +1,8 @@
-import {
-  CELL_SIZE,
-  SPRITE_SHEET_SRC,
-  BACKGROUND_SHEET_SRC,
-} from "../../helpers/constants";
-import LevelBackgroundTilesLayer from "./LevelBackgroundTilesLayer";
+import LevelBackgroundLayer from "./LevelBackgroundLayer";
 import LevelPlacementsLayer from "./LevelPlacementsLayer";
-import Sprite from "../object-graphics/Sprite";
 import styles from "./RenderLevel.module.css";
 
-export default function RenderLayer({ spriteSheet }) {
+export default function RenderLayer({ spriteSheet, background }) {
   const level = {
     // theme: "LEVEL_THEME.MYSTERY_DUNGEON",
     placements: [
@@ -19,36 +13,9 @@ export default function RenderLayer({ spriteSheet }) {
   };
   return (
     <div className={styles.fullScreenContainer}>
-      {/* <Sprite image={spriteSheet} frameCoord={placement.frameCoord} /> */}
-      <LevelBackgroundTilesLayer level={level} image={BACKGROUND_SHEET_SRC} />
       <div className={styles.gameScreen}>
-        {level.placements.map((placement) => {
-          const x = placement.x * CELL_SIZE + "px";
-          const y = placement.x * CELL_SIZE + "px";
-          const style = {
-            position: "absolute",
-            transform: `translate3d(${x}, ${y}, 0)`,
-          };
-
-          return (
-            <div key={placement.id} style={style}>
-              <Sprite
-                image={spriteSheet}
-                frameCoord={placement.frameCoord}
-                size={placement.size}
-              />
-            </div>
-          );
-        })}
-        {/* <LevelPlacementsLayer level={level} image={SPRITE_SHEET_SRC} /> */}
-
-        {/* KJ running DL
-        <Sprite image={spriteSheet} frameCoord={"0x10"} />
-        <Sprite image={spriteSheet} frameCoord={"2x10"} />
-        <Sprite image={spriteSheet} frameCoord={"4x10"} />
-        <Sprite image={spriteSheet} frameCoord={"0x12"} />
-        <Sprite image={spriteSheet} frameCoord={"2x12"} />
-        <Sprite image={spriteSheet} frameCoord={"4x12"} /> */}
+        <LevelBackgroundLayer level={level} background={background} />
+        <LevelPlacementsLayer level={level} spriteSheet={spriteSheet} />
       </div>
     </div>
   );

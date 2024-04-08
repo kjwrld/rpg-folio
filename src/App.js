@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { SPRITE_SHEET_SRC, BACKGROUND_SHEET_SRC } from "./helpers/constants.js";
+import { SPRITE_SHEET_SRC } from "./helpers/constants.js";
 import RenderLayer from "./components/level-layout/RenderLevel.js";
+import { BACKGROUND_SHEET_SRC } from "./helpers/constants.js";
 
 function App() {
   const [spriteSheet, setSpriteSheet] = useState(null);
@@ -8,9 +9,7 @@ function App() {
   useEffect(() => {
     /** @type {HTMLImageElement} */
     const sheet = new Image();
-    const level = new Image();
     sheet.src = SPRITE_SHEET_SRC;
-    level.src = BACKGROUND_SHEET_SRC;
     sheet.onload = () => {
       setSpriteSheet(sheet);
     };
@@ -20,9 +19,9 @@ function App() {
     return null;
   }
 
-  console.log(spriteSheet);
-
-  return <RenderLayer spriteSheet={spriteSheet} />;
+  return (
+    <RenderLayer spriteSheet={spriteSheet} background={BACKGROUND_SHEET_SRC} />
+  );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-export default function LevelBackgroundImageLayer({ level, image }) {
+export default function LevelBackgroundLayer({ level, background }) {
   return (
     <div
       style={{
@@ -7,7 +7,7 @@ export default function LevelBackgroundImageLayer({ level, image }) {
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
