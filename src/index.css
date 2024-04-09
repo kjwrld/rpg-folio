@@ -46,18 +46,18 @@ canvas {
 /* 5x */
 @media (min-width: 900px) {
   :root {
-    --pixel-size: 5;
+    --pixel-size: 4;
   }
 }
 /* 6x */
 @media (min-width: 1080px) {
   :root {
-    --pixel-size: 6;
+    --pixel-size: 4;
   }
 }
 /* 7x */
 @media (min-width: 1260px) {
   :root {
-    --pixel-size: 7;
+    --pixel-size: 4;
   }
 }
