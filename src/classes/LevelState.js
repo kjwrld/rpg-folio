@@ -16,13 +16,33 @@ export class LevelState {
   }
 
   createPlacement(id, x, y) {
-    const gameObject = GAME_OBJECTS[id];
-    if (!gameObject) {
+    const components = GAME_OBJECTS[id.toLowerCase()];
+    if (!components) {
       console.error(`GameObject "${id}" not found.`);
       return null;
     }
-    // Merging the object template with the specific placement data
-    return { id, x, y, ...gameObject };
+
+    // Get the base 'x' frameCoord for the first component to calculate offsets
+    const baseX = this.parseFrameCoord(components[0].frameCoord).x;
+
+    // Generate a placement for each component of the object
+    return components.map((component, index) => {
+      const { x: componentX } = this.parseFrameCoord(component.frameCoord);
+      // Calculate the offset based on the difference in x frame coordinates
+      const xOffset = (componentX - baseX) * component.size;
+
+      return {
+        ...component,
+        id: `${id}_${index}`, // Unique ID for each component
+        x: x + xOffset, // Adjust X coordinate based on frameCoord offset
+        y, // Y coordinate remains the same for all components
+      };
+    });
+  }
+
+  parseFrameCoord(frameCoord) {
+    const [x, y] = frameCoord.split("x").map(Number);
+    return { x, y };
   }
 
   getState() {
