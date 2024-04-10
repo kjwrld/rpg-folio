@@ -1,7 +1,29 @@
 import { useEffect, useState } from "react";
-import { SPRITE_SHEET_SRC } from "./helpers/constants.js";
 import RenderLayer from "./components/level-layout/RenderLevel.js";
-import { BACKGROUND_SHEET_SRC } from "./helpers/constants.js";
+
+import {
+  SPRITE_SHEET_SRC,
+  THEME_BACKGROUNDS,
+  BACKGROUND_SHEET_SRC,
+} from "./helpers/constants.js";
+
+const office_level = {
+  id: "office",
+  theme: THEME_BACKGROUNDS["office"],
+  background: BACKGROUND_SHEET_SRC,
+  placements: [
+    { id: "mona", x: 8, y: 2.5, frameCoord: "2x0", size: 32 },
+    { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
+    { id: "blueprint", x: -0.5, y: 1.25, frameCoord: "8x5", size: 32 },
+    { id: "blueprint2", x: 0.5, y: 1.25, frameCoord: "9x5", size: 32 },
+    { id: "desk", x: -1.5, y: 3, frameCoord: "6x0", size: 48 },
+    { id: "desk2", x: 0.5, y: 3, frameCoord: "8x0", size: 48 },
+    { id: "computer", x: -1.5, y: 2.5, frameCoord: "6x3", size: 32 },
+    { id: "computer2", x: 0.5, y: 2.5, frameCoord: "8x3", size: 32 },
+    { id: "computer3", x: 2.5, y: 2.5, frameCoord: "10x3", size: 32 },
+    { id: "seat", x: 0, y: 4.5, frameCoord: "6x5", size: 32 },
+  ],
+};
 
 function App() {
   const [spriteSheet, setSpriteSheet] = useState(null);
@@ -20,7 +42,11 @@ function App() {
   }
 
   return (
-    <RenderLayer spriteSheet={spriteSheet} background={BACKGROUND_SHEET_SRC} />
+    <RenderLayer
+      level={office_level}
+      spriteSheet={spriteSheet}
+      background={BACKGROUND_SHEET_SRC}
+    />
   );
 }
 

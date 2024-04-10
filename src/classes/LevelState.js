@@ -1,4 +1,5 @@
 import { LEVEL_THEMES } from "../helpers/constants";
+import { THEME_BACKGROUNDS } from "../helpers/constants";
 import { GAME_OBJECTS } from "../helpers/gameObjects";
 
 export class LevelState {
@@ -22,6 +23,12 @@ export class LevelState {
       return null;
     }
 
+    // example component
+    // desk: [
+    //   { frameCoord: "6x0", size: 48 },
+    //   { frameCoord: "8x0", size: 48 },
+    // ];
+
     // Get the base 'x' frameCoord for the first component to calculate offsets
     const baseX = this.parseFrameCoord(components[0].frameCoord).x;
 
@@ -29,7 +36,7 @@ export class LevelState {
     return components.map((component, index) => {
       const { x: componentX } = this.parseFrameCoord(component.frameCoord);
       // Calculate the offset based on the difference in x frame coordinates
-      const xOffset = (componentX - baseX) * component.size;
+      const xOffset = componentX - baseX;
 
       return {
         ...component,
