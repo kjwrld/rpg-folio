@@ -15,13 +15,9 @@ const office_level = {
     { id: "mona", x: 8, y: 2.5, frameCoord: "2x0", size: 32 },
     { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
     { id: "blueprint", x: -0.5, y: 1.25 },
-    { id: "blueprint2", x: 0.5, y: 1.25 },
     { id: "desk", x: -1.5, y: 3 },
-    { id: "desk2", x: 0.5, y: 3 },
     { id: "computer", x: -1.5, y: 2.5 },
-    { id: "computer2", x: 0.5, y: 2.5 },
-    // { id: "computer3", x: 2.5, y: 2.5 },
-    { id: "seat", x: 0, y: 4.5 },
+    { id: "seat", x: 0, y: 4.5, frameCoord: "6x5", size: 32 },
   ],
 };
 

@@ -1,33 +1,48 @@
 import styles from "./RenderLevel.module.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import LevelBackgroundLayer from "./LevelBackgroundLayer";
 import LevelPlacementsLayer from "./LevelPlacementsLayer";
 import { LevelState } from "../../classes/LevelState";
 
 export default function RenderLayer({ level, spriteSheet, background }) {
   const [levelState, setLevelState] = useState(null);
+  const levelStateRef = useRef();
 
   useEffect(() => {
-    const levelCurrentState = new LevelState(level, (newState) => {
-      setLevelState(levelCurrentState.getState());
-    });
-    return () => {
-      levelCurrentState.destroy();
-    };
-  }, []);
+    if (!levelStateRef.current) {
+      levelStateRef.current = new LevelState(level, (newState) => {
+        setLevelState(newState);
+      });
 
-  // if (!level) {
-  //   return null;
-  // }
+      // Assuming initializeState is properly async and sets up initial placements.
+      levelStateRef.current
+        .initializeState(level.placements)
+        .then(() => setLevelState(levelStateRef.current.getState()))
+        .catch(console.error);
+    }
+
+    // TODO: listeners or game loop here for levelStateRef.current.moveObject
+
+    return () => {
+      levelStateRef.current.destroy();
+    };
+  }, [level]); // Dependency on external `level` prop to re-initialize if needed
+
+  if (!levelState) {
+    return null;
+  }
 
   return (
     <div
       className={styles.fullScreenContainer}
-      style={{ background: level.theme }}
+      style={{ background: levelState.theme }}
     >
       <div className={styles.gameScreen}>
-        <LevelBackgroundLayer level={level} background={level.background} />
-        <LevelPlacementsLayer level={level} spriteSheet={spriteSheet} />
+        <LevelBackgroundLayer
+          level={levelState}
+          background={levelState.background}
+        />
+        <LevelPlacementsLayer level={levelState} spriteSheet={spriteSheet} />
       </div>
     </div>
   );

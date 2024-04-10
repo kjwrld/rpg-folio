@@ -13,12 +13,8 @@ export function Sprite({ image, frameCoord, size = 16 }) {
     // clear out canvas
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
 
-    // coordinates
     const tileSheetX = Number(frameCoord.split("x")[0]);
     const tileSheetY = Number(frameCoord.split("x")[1]);
-
-    console.log("is the image here?");
-    console.log(image);
 
     ctx.drawImage(
       image, // Image to pull from

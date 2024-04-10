@@ -7,10 +7,12 @@ export default function LevelPlacementsLayer({ level, spriteSheet }) {
     console.error("placements is not an array");
     return null;
   }
+  // Guard Rail
+  const validPlacements = level.placements.filter((p) => p.frameCoord);
 
   return (
     <React.Fragment>
-      {level.placements.map((placement) => {
+      {validPlacements.map((placement) => {
         const x = placement.x * CELL_SIZE + "px";
         const y = placement.y * CELL_SIZE + "px";
         const style = {
