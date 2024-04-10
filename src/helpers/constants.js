@@ -1,6 +1,6 @@
 export const CELL_SIZE = 16;
 export const SPRITE_SHEET_SRC = "./kj-0001-v2.png";
-export const BACKGROUND_SHEET_SRC = "../background.png";
+export const BACKGROUND_SHEET_SRC = "../nature-office.png";
 
 export const LEVEL_THEMES = {
   bedroom: "bedroom",
@@ -9,7 +9,7 @@ export const LEVEL_THEMES = {
 
 export const THEME_BACKGROUNDS = {
   [LEVEL_THEMES.bedroom]: "#2f2808",
-  [LEVEL_THEMES.office]: "#f2f2f2",
+  [LEVEL_THEMES.office]: "#0D1D04",
 };
 
 export const THEME_MAP = {
