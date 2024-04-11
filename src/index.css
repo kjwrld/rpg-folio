@@ -67,6 +67,48 @@ canvas {
   }
 }
 
+/* iPads in Portrait */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  :root {
+    --pixel-size: 4;
+  }
+}
+
+/* iPads in Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  :root {
+    --pixel-size: 4;
+  }
+}
+
+/* iPad Pro 12.9-inch in Portrait */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: portrait) {
+  :root {
+    --pixel-size: 4;
+  }
+}
+
+/* iPad Pro 12.9-inch in Landscape */
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (orientation: landscape) {
+  :root {
+    --pixel-size: 4;
+  }
+}
+
+/* Full HD Galaxy devices in Landscape */
+@media only screen and (min-device-width: 640px) and (max-device-width: 854px) and (-webkit-min-device-pixel-ratio: 3) {
+  :root {
+    --pixel-size: 3;
+  }
+}
+
+/* Targeting Quad HD Galaxy devices in Landscape */
+@media only screen and (min-device-width: 732px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 4) {
+  :root {
+    --pixel-size: 3;
+  }
+}
+
 /* Laptops and Small Desktops */
 @media (min-width: 900px) {
   :root {
