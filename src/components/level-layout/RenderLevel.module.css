@@ -11,7 +11,7 @@
   width: var(--game-viewport-width);
   height: var(--game-viewport-height);
   transform: scale(var(--pixel-size));
-  outline: 2px solid red;
+  /* outline: 2px solid red; */
   position: relative; /* Positioned relative to .fullScreenContainer */
   overflow: visible; /* This will ensure content can extend outside */
 }

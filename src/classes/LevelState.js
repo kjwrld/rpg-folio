@@ -1,4 +1,4 @@
-import { GAME_OBJECTS } from "../helpers/gameObjects";
+import { GAME_OBJECTS } from "../game-objects/objects";
 
 export class LevelState {
   constructor(level, onEmit) {

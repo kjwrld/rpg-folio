@@ -12,12 +12,11 @@ const office_level = {
   theme: THEME_BACKGROUNDS["office"],
   background: BACKGROUND_SHEET_SRC,
   placements: [
-    { id: "mona", x: 8, y: 2.5, frameCoord: "2x0", size: 32 },
-    { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
+    { id: "mona", x: 8, y: 2.5 },
     { id: "blueprint", x: -0.5, y: 1.25 },
     { id: "desk", x: -1.5, y: 3 },
     { id: "computer", x: -1.5, y: 2.5 },
-    { id: "seat", x: 0, y: 4.5, frameCoord: "6x5", size: 32 },
+    { id: "seat", x: 0, y: 4.5 },
   ],
 };
 
