@@ -1,5 +1,5 @@
 export const HERO = {
-  DL002: [{ frameCoord: "0x10", size: 32 }],
+  dl: [{ frameCoord: "0x10", size: 32, active: true }],
 };
 // { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
 

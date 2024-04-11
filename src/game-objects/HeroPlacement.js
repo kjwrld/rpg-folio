@@ -1,5 +1,5 @@
 import Placement from "./Placement";
-import { HERO } from "../helpers/constants"; // Assuming HERO is defined in constants
+import { HERO } from "../game-objects/objects";
 
 export class HeroPlacement extends Placement {
   constructor(props) {
@@ -7,15 +7,15 @@ export class HeroPlacement extends Placement {
   }
 
   static createPlacement(p) {
-    const heroConfig = HERO[p.id];
+    const heroConfig = HERO[p[0].id];
     if (!heroConfig) {
-      console.error(`Hero "${p.id}" not found.`);
+      console.error(`Hero "${p[0].id}" not found.`);
       return null;
     }
 
     return new HeroPlacement({
-      ...p,
-      ...heroConfig,
+      ...p[0],
+      ...heroConfig[0],
     });
   }
 }

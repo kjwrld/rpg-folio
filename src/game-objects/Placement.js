@@ -1,5 +1,4 @@
 import { GAME_OBJECTS } from "./objects";
-import { SPRITE_SHEET_SRC } from "../helpers/constants";
 import { Sprite } from "../components/object-graphics/Sprite";
 
 export default class Placement {
@@ -52,4 +51,6 @@ export default class Placement {
       />
     );
   }
+
+  tick() {}
 }

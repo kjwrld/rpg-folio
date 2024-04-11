@@ -18,6 +18,7 @@ const office_level = {
     { id: "computer", x: -1.5, y: 2.5 },
     { id: "seat", x: 0, y: 4.5 },
   ],
+  hero: [{ id: "dl", x: 4, y: 1 }],
 };
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
     <RenderLayer
       level={office_level}
       spriteSheet={spriteSheet}
-      background={BACKGROUND_SHEET_SRC}
+      background={office_level.background}
     />
   );
 }

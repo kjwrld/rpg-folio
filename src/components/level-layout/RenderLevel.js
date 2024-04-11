@@ -13,7 +13,7 @@ export default function RenderLayer({ level, spriteSheet, background }) {
       levelStateRef.current = new LevelState(level, (newState) => {
         setLevelState(newState);
       });
-      levelStateRef.current.initializeState(level.placements);
+      levelStateRef.current.initializeState(level.placements, level.hero);
       setLevelState(levelStateRef.current.getState());
     }
 
