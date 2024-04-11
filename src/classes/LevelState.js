@@ -10,10 +10,11 @@ export class LevelState {
     this.initializeState(level.placements);
   }
 
-  async initializeState(placements) {
+  initializeState(placements) {
     this.placements = placements
-      .flatMap((p) => Placement.createPlacement(p))
-      .filter((p) => p !== null);
+      .flatMap(Placement.createPlacement)
+      .filter(Boolean);
+    this.activePlacements = this.placements.filter((p) => p.active);
     this.onEmit(this.getState());
   }
 

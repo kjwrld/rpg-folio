@@ -13,12 +13,8 @@ export default function RenderLayer({ level, spriteSheet, background }) {
       levelStateRef.current = new LevelState(level, (newState) => {
         setLevelState(newState);
       });
-
-      // Assuming initializeState is properly async and sets up initial placements.
-      levelStateRef.current
-        .initializeState(level.placements)
-        .then(() => setLevelState(levelStateRef.current.getState()))
-        .catch(console.error);
+      levelStateRef.current.initializeState(level.placements);
+      setLevelState(levelStateRef.current.getState());
     }
 
     // TODO: listeners or game loop here for levelStateRef.current.moveObject
