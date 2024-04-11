@@ -1,9 +1,16 @@
 import React from "react";
 import { useEffect, useRef } from "react";
 import { CELL_SIZE } from "../../helpers/constants";
+import { SPRITE_SHEET_SRC } from "../../helpers/constants";
 
-export function Sprite({ image, frameCoord, size = 16 }) {
+export function Sprite({ sheet = null, frameCoord, size = 16 }) {
   const canvasRef = useRef();
+
+  if (!sheet) {
+    /** @type {HTMLImageElement} */
+    sheet = new Image();
+    sheet.src = SPRITE_SHEET_SRC;
+  }
 
   useEffect(() => {
     /** @type {HTMLCanvasElement} */
@@ -17,7 +24,7 @@ export function Sprite({ image, frameCoord, size = 16 }) {
     const tileSheetY = Number(frameCoord.split("x")[1]);
 
     ctx.drawImage(
-      image,
+      sheet,
       tileSheetX * CELL_SIZE, // Left X corner of frame
       tileSheetY * CELL_SIZE, // Top Y corner of frame
       size, //How much to crop from the sprite sheet (X)
@@ -27,7 +34,7 @@ export function Sprite({ image, frameCoord, size = 16 }) {
       size, //How large to scale it (X)
       size //How large to scale it (Y)
     );
-  }, [image, frameCoord, size]);
+  }, [sheet, frameCoord, size]);
 
   return <canvas width={size} height={size} ref={canvasRef} />;
 }

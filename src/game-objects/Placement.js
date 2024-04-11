@@ -45,7 +45,7 @@ export default class Placement {
   renderComponent(spriteSheet) {
     return (
       <Sprite
-        image={spriteSheet}
+        sheet={spriteSheet}
         frameCoord={this.frameCoord}
         size={this.size}
       />

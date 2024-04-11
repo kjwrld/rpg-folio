@@ -1,5 +1,6 @@
 import Placement from "./Placement";
 import { HERO } from "../game-objects/objects";
+import Hero from "../components/object-graphics/Hero";
 
 export class HeroPlacement extends Placement {
   constructor(props) {
@@ -18,4 +19,10 @@ export class HeroPlacement extends Placement {
       ...heroConfig[0],
     });
   }
+
+  renderComponent() {
+    return <Hero />;
+  }
+
+  tick() {}
 }

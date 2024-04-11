@@ -13,12 +13,11 @@ export class LevelState {
 
   initializeState(placements, hero) {
     this.hero = HeroPlacement.createPlacement(hero);
-    console.log("this.hero", this.hero);
     this.placements = placements
       .flatMap(Placement.createPlacement)
       .filter(Boolean);
     this.activePlacements = this.placements.filter((p) => p.active);
-    // this.startGameLoop();
+    this.startGameLoop();
   }
 
   getState() {
@@ -40,11 +39,14 @@ export class LevelState {
   }
 
   tick() {
+    let c = 1;
     this.activePlacements.forEach((aP) => {
       aP.tick();
     });
     this.onEmit(this.getState());
   }
 
-  destroy() {}
+  destroy() {
+    this.gameLoop?.stop();
+  }
 }
