@@ -3,22 +3,20 @@ import { SPRITE_SHEET_SRC } from "../helpers/constants";
 import { Sprite } from "../components/object-graphics/Sprite";
 
 export default class Placement {
-  //  constructor({ id, x, y, frameCoord, size }, level) {
-  constructor({ id, x, y, frameCoord, size }) {
+  constructor({ id, x, y, frameCoord, size, active = null }) {
     this.id = id;
     this.x = x;
     this.y = y;
     this.frameCoord = frameCoord;
     this.size = size;
-    // this.level = level;
+    this.active = active; // might use this to distinguish interactive objects
   }
 
-  //  static createPlacement(p, level) {
   static createPlacement(p) {
     const components = GAME_OBJECTS[p.id];
     if (!components) {
       if (p.frameCoord) {
-        return new Placement(p); // Return p as a new placement if frameCoord exists
+        return new Placement(p);
       }
       console.error(`GameObject "${p.id}" not found.`);
       return null;
@@ -29,7 +27,7 @@ export default class Placement {
     return components.map((component, index) => {
       const { x: componentX } = Placement.parseFrameCoord(component.frameCoord);
       const xOffset = componentX - baseX;
-      const newX = p.x + xOffset; // Adjust X coordinate based on frameCoord offset
+      const newX = p.x + xOffset;
 
       return new Placement({
         ...component,

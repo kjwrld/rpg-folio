@@ -1,7 +1,7 @@
 export const HERO = {
   DL002: [{ frameCoord: "0x10", size: 32 }],
 };
-//     { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
+// { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
 
 export const GAME_OBJECTS = {
   seat: [{ frameCoord: "6x5", size: 32 }],

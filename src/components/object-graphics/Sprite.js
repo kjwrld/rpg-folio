@@ -17,7 +17,7 @@ export function Sprite({ image, frameCoord, size = 16 }) {
     const tileSheetY = Number(frameCoord.split("x")[1]);
 
     ctx.drawImage(
-      image, // Image to pull from
+      image,
       tileSheetX * CELL_SIZE, // Left X corner of frame
       tileSheetY * CELL_SIZE, // Top Y corner of frame
       size, //How much to crop from the sprite sheet (X)

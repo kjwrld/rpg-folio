@@ -26,7 +26,5 @@ export class LevelState {
     };
   }
 
-  destroy() {
-    // Cleanup state if necessary
-  }
+  destroy() {}
 }

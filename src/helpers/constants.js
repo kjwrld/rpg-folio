@@ -2,9 +2,6 @@ export const CELL_SIZE = 16;
 export const SPRITE_SHEET_SRC = "./kj-0001-v2.png";
 export const BACKGROUND_SHEET_SRC = "../nature-office.png";
 
-export const PLACEMENT_HERO = "hero";
-export const PLACEMENT_OBJECT = "goal";
-
 export const LEVEL_THEMES = {
   bedroom: "bedroom",
   office: "office",

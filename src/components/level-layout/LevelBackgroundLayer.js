@@ -6,9 +6,7 @@ function LevelBackgroundLayer({ level, background }) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    // const gameScreen = canvas.parentElement;
 
-    // Assuming we will draw the image to match its natural size.
     const backgroundImage = new Image();
     backgroundImage.onload = function () {
       // Resize the canvas to the size of the image
