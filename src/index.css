@@ -31,31 +31,57 @@ canvas {
     --pixel-size: 2;
   }
 }
-/* 3x */
+
+/* iPhone X/XS, 11 Pro, 12 mini */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+  :root {
+    --pixel-size: 3;
+  }
+}
+
+/* iPhone XR, 11, 11 Pro Max */
+@media only screen and (min-device-width: 414px) and (max-device-width: 896px) and (-webkit-min-device-pixel-ratio: 2) {
+  :root {
+    --pixel-size: 3;
+  }
+}
+
+/* iPhone 12/12 Pro, 13/13 Pro */
+@media only screen and (min-device-width: 428px) and (max-device-width: 926px) and (-webkit-min-device-pixel-ratio: 3) {
+  :root {
+    --pixel-size: 3;
+  }
+}
+
+/* Tablets in Portrait and Larger Smartphones in Landscape */
 @media (min-width: 540px) {
   :root {
     --pixel-size: 3;
   }
 }
-/* 4x */
+
+/* Small Laptops and Large Tablets in Landscape */
 @media (min-width: 720px) {
   :root {
     --pixel-size: 4;
   }
 }
-/* 5x */
+
+/* Laptops and Small Desktops */
 @media (min-width: 900px) {
   :root {
     --pixel-size: 4;
   }
 }
-/* 6x */
+
+/* Large Laptops and Desktops */
 @media (min-width: 1080px) {
   :root {
     --pixel-size: 4;
   }
 }
-/* 7x */
+
+/* Large Desktops */
 @media (min-width: 1260px) {
   :root {
     --pixel-size: 4;
