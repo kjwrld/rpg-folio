@@ -1,4 +1,6 @@
 import { GAME_OBJECTS } from "./objects";
+import { SPRITE_SHEET_SRC } from "../helpers/constants";
+import { Sprite } from "../components/object-graphics/Sprite";
 
 export default class Placement {
   //  constructor({ id, x, y, frameCoord, size }, level) {
@@ -43,7 +45,13 @@ export default class Placement {
     return { x, y };
   }
 
-  renderComponent() {
-    return null;
+  renderComponent(spriteSheet) {
+    return (
+      <Sprite
+        image={spriteSheet}
+        frameCoord={this.frameCoord}
+        size={this.size}
+      />
+    );
   }
 }

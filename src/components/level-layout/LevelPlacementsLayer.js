@@ -22,11 +22,7 @@ export default function LevelPlacementsLayer({ level, spriteSheet }) {
 
         return (
           <div key={placement.id} style={style}>
-            <Sprite
-              image={spriteSheet}
-              frameCoord={placement.frameCoord}
-              size={placement.size}
-            />
+            {placement.renderComponent(spriteSheet)}
           </div>
         );
       })}

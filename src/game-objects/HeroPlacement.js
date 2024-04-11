@@ -1,15 +1,21 @@
-import { Sprite } from "../components/object-graphics/Sprite";
 import Placement from "./Placement";
-import { SPRITE_SHEET_SRC } from "../helpers/constants";
+import { HERO } from "../helpers/constants"; // Assuming HERO is defined in constants
 
 export class HeroPlacement extends Placement {
-  renderComponent() {
-    return (
-      <Sprite
-        image={SPRITE_SHEET_SRC}
-        frameCoord={placement.frameCoord}
-        size={placement.size}
-      />
-    );
+  constructor(props) {
+    super(props);
+  }
+
+  static createPlacement(p) {
+    const heroConfig = HERO[p.id];
+    if (!heroConfig) {
+      console.error(`Hero "${p.id}" not found.`);
+      return null;
+    }
+
+    return new HeroPlacement({
+      ...p,
+      ...heroConfig,
+    });
   }
 }
