@@ -1,4 +1,5 @@
 import { GAME_OBJECTS } from "../game-objects/objects";
+import Placement from "../game-objects/Placement";
 
 export class LevelState {
   constructor(level, onEmit) {
@@ -10,38 +11,10 @@ export class LevelState {
   }
 
   async initializeState(placements) {
-    this.placements = placements.flatMap((p) => this.createPlacement(p));
+    this.placements = placements
+      .flatMap((p) => Placement.createPlacement(p))
+      .filter((p) => p !== null);
     this.onEmit(this.getState());
-  }
-
-  createPlacement(p) {
-    const components = GAME_OBJECTS[p.id];
-    if (!components) {
-      if (p?.frameCoord) {
-        return p;
-      }
-      console.error(`GameObject "${p.id}" not found.`);
-    }
-
-    const baseX = this.parseFrameCoord(components[0].frameCoord).x;
-
-    return components.map((component, index) => {
-      const { x: componentX } = this.parseFrameCoord(component.frameCoord);
-      const xOffset = componentX - baseX;
-      const newX = p.x + xOffset; // Adjust X coordinate based on frameCoord offset
-
-      return {
-        id: `${p.id}_${index}`,
-        x: newX,
-        y: p.y,
-        ...component,
-      };
-    });
-  }
-
-  parseFrameCoord(frameCoord) {
-    const [x, y] = frameCoord.split("x").map(Number);
-    return { x, y };
   }
 
   getState() {
