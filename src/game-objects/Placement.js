@@ -57,7 +57,6 @@ export default class Placement {
     );
   }
 
-  // Calculates the current position of the placement, accounting for any movement
   calculatePosition() {
     if (this.movingPixelsRemaining > 0) {
       return this.calculateMovingPosition();
@@ -65,7 +64,6 @@ export default class Placement {
     return [this.x * CELL_SIZE, this.y * CELL_SIZE];
   }
 
-  // Calculates the position during movement based on the remaining pixels and direction
   calculateMovingPosition() {
     const directionVectors = {
       UP: { dx: 0, dy: -1 },
@@ -82,7 +80,6 @@ export default class Placement {
     const y = this.y * CELL_SIZE;
     const progressPixels = CELL_SIZE - this.movingPixelsRemaining;
 
-    // Get the directional vector for the current movement direction
     const vector = directionVectors[this.movingPixelDirection] || {
       dx: 0,
       dy: 0,

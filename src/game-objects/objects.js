@@ -9,9 +9,18 @@ export const HERO = {
     LEFT: [{ frameCoord: "2x2", size: 32, active: true }],
     UPLEFT: [{ frameCoord: "4x2", size: 32, active: true }],
   },
-  DOWN_LEFT: [{ frameCoord: "0x10", size: 32, active: true }],
+  MOTION: {
+    UP: [
+      { frameCoord: "0x22", size: 32, active: true },
+      { frameCoord: "2x22", size: 32, active: true },
+      { frameCoord: "4x22", size: 32, active: true },
+      { frameCoord: "0x24", size: 32, active: true },
+      { frameCoord: "2x24", size: 32, active: true },
+      { frameCoord: "4x24", size: 32, active: true },
+    ],
+  },
+  STARTING: [{ frameCoord: "0x10", size: 32, active: true }],
 };
-// { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
 
 export const GAME_OBJECTS = {
   seat: [{ frameCoord: "6x5", size: 32, active: false }],
