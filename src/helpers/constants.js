@@ -14,24 +14,24 @@ export const THEME_BACKGROUNDS = {
 
 export const DIRECTION = {
   UP: "UP",
-  UP_RIGHT: "UPRIGHT",
+  UPRIGHT: "UPRIGHT",
   RIGHT: "RIGHT",
-  DOWN_RIGHT: "DOWNRIGHT",
+  DOWNRIGHT: "DOWNRIGHT",
   DOWN: "DOWN",
-  DOWN_LEFT: "DOWNLEFT",
+  DOWNLEFT: "DOWNLEFT",
   LEFT: "LEFT",
-  UP_LEFT: "UPLEFT",
+  UPLEFT: "UPLEFT",
 };
 
 export const directionUpdateMap = {
   [DIRECTION.UP]: { x: 0, y: -1 },
-  [DIRECTION.UP_RIGHT]: { x: 0.5, y: -0.5 },
+  [DIRECTION.UPRIGHT]: { x: 1, y: -1 },
   [DIRECTION.RIGHT]: { x: 1, y: 0 },
-  [DIRECTION.DOWN_RIGHT]: { x: 0.5, y: 0.5 },
+  [DIRECTION.DOWNRIGHT]: { x: 1, y: 1 },
   [DIRECTION.DOWN]: { x: 0, y: 1 },
-  [DIRECTION.DOWN_LEFT]: { x: -0.5, y: 0.5 },
+  [DIRECTION.DOWNLEFT]: { x: -1, y: 1 },
   [DIRECTION.LEFT]: { x: -1, y: 0 },
-  [DIRECTION.UP_LEFT]: { x: -0.5, y: -0.5 },
+  [DIRECTION.UPLEFT]: { x: -1, y: -1 },
 };
 
 // export const THEME_MAP = {

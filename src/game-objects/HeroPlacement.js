@@ -18,7 +18,7 @@ export class HeroPlacement extends Placement {
   }
 
   renderComponent() {
-    return <Hero />;
+    return <Hero direction={this.movingPixelDirection} />;
   }
 
   tick() {

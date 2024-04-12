@@ -37,13 +37,13 @@ export class DirectionControls {
   updateHeldDirections() {
     this.heldDirections = []; // Clear current held directions
     if (this.keyStates["ArrowUp"] && this.keyStates["ArrowRight"]) {
-      this.heldDirections.push(DIRECTION.UP_RIGHT);
+      this.heldDirections.push(DIRECTION.UPRIGHT);
     } else if (this.keyStates["ArrowUp"] && this.keyStates["ArrowLeft"]) {
-      this.heldDirections.push(DIRECTION.UP_LEFT);
+      this.heldDirections.push(DIRECTION.UPLEFT);
     } else if (this.keyStates["ArrowDown"] && this.keyStates["ArrowRight"]) {
-      this.heldDirections.push(DIRECTION.DOWN_RIGHT);
+      this.heldDirections.push(DIRECTION.DOWNRIGHT);
     } else if (this.keyStates["ArrowDown"] && this.keyStates["ArrowLeft"]) {
-      this.heldDirections.push(DIRECTION.DOWN_LEFT);
+      this.heldDirections.push(DIRECTION.DOWNLEFT);
     }
 
     // Check for non-diagonal directions only if no diagonal direction is active

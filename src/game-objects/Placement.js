@@ -11,7 +11,7 @@ export default class Placement {
     this.size = size;
     this.active = active; // might use this to distinguish interactive objects
 
-    this.travelPixelsPerFrame = 3;
+    this.travelPixelsPerFrame = 6;
     this.movingPixelsRemaining = 0;
     this.movingPixelDirection = DIRECTION.DOWN;
   }
@@ -69,13 +69,13 @@ export default class Placement {
   calculateMovingPosition() {
     const directionVectors = {
       UP: { dx: 0, dy: -1 },
-      UP_RIGHT: { dx: 1, dy: -1 },
+      UPRIGHT: { dx: 1, dy: -1 },
       RIGHT: { dx: 1, dy: 0 },
-      DOWN_RIGHT: { dx: 1, dy: 1 },
+      DOWNRIGHT: { dx: 1, dy: 1 },
       DOWN: { dx: 0, dy: 1 },
-      DOWN_LEFT: { dx: -1, dy: 1 },
+      DOWNLEFT: { dx: -1, dy: 1 },
       LEFT: { dx: -1, dy: 0 },
-      UP_LEFT: { dx: -1, dy: -1 },
+      UPLEFT: { dx: -1, dy: -1 },
     };
 
     const x = this.x * CELL_SIZE;

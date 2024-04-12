@@ -1,4 +1,14 @@
 export const HERO = {
+  STANDING: {
+    UP: [{ frameCoord: "4x0", size: 32, active: true }],
+    UPRIGHT: [{ frameCoord: "4x4", size: 32, active: true }],
+    RIGHT: [{ frameCoord: "2x4", size: 32, active: true }],
+    DOWNRIGHT: [{ frameCoord: "2x4", size: 32, active: true }],
+    DOWN: [{ frameCoord: "0x0", size: 32, active: true }],
+    DOWNLEFT: [{ frameCoord: "0x2", size: 32, active: true }],
+    LEFT: [{ frameCoord: "2x2", size: 32, active: true }],
+    UPLEFT: [{ frameCoord: "4x2", size: 32, active: true }],
+  },
   DOWN_LEFT: [{ frameCoord: "0x10", size: 32, active: true }],
 };
 // { id: "DL-002", x: 4, y: 1, frameCoord: "0x10", size: 32 },
