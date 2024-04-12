@@ -1,6 +1,7 @@
 import Placement from "../game-objects/Placement";
 import { HeroPlacement } from "../game-objects/HeroPlacement";
 import { GameLoop } from "./GameLoop";
+import { DirectionControls } from "./DirectionControls";
 
 export class LevelState {
   constructor(level, onEmit) {
@@ -8,6 +9,7 @@ export class LevelState {
     this.theme = level.theme;
     this.background = level.background;
     this.onEmit = onEmit;
+    this.directionControls = new DirectionControls();
     this.initializeState(level.placements, level.hero);
   }
 
@@ -39,7 +41,9 @@ export class LevelState {
   }
 
   tick() {
-    let c = 1;
+    if (this.directionControls.direction) {
+      this.hero.contollerMoveRequest(this.directionControls.direction);
+    }
     this.activePlacements.forEach((aP) => {
       aP.tick();
     });
@@ -48,5 +52,6 @@ export class LevelState {
 
   destroy() {
     this.gameLoop?.stop();
+    this.directionControls.unbind();
   }
 }

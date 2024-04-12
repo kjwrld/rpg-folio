@@ -1,6 +1,4 @@
 import React from "react";
-import { CELL_SIZE } from "../../helpers/constants";
-import { HeroPlacement } from "../../game-objects/HeroPlacement";
 
 export default function LevelPlacementsLayer({ level, spriteSheet }) {
   if (!Array.isArray(level.placements)) {

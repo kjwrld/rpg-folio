@@ -4,10 +4,6 @@ import Hero from "../components/object-graphics/Hero";
 import { directionUpdateMap } from "../helpers/constants";
 
 export class HeroPlacement extends Placement {
-  constructor(props) {
-    super(props);
-  }
-
   static createPlacement(p) {
     const heroConfig = HERO[p[0].id];
     if (!heroConfig) {
@@ -27,6 +23,13 @@ export class HeroPlacement extends Placement {
 
   tick() {
     this.updateMovementProgress();
+  }
+
+  contollerMoveRequest(direction) {
+    if (this.movingPixelsRemaining > 0) {
+      return;
+    }
+    this.movingPixelDirection = direction;
   }
 
   updateMovementProgress() {
