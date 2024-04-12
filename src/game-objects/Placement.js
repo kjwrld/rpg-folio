@@ -62,7 +62,6 @@ export default class Placement {
     if (this.movingPixelsRemaining > 0) {
       return this.calculateMovingPosition();
     }
-
     return [this.x * CELL_SIZE, this.y * CELL_SIZE];
   }
 

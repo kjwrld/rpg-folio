@@ -1,5 +1,6 @@
 import React from "react";
 import { CELL_SIZE } from "../../helpers/constants";
+import { HeroPlacement } from "../../game-objects/HeroPlacement";
 
 export default function LevelPlacementsLayer({ level, spriteSheet }) {
   if (!Array.isArray(level.placements)) {
@@ -14,11 +15,10 @@ export default function LevelPlacementsLayer({ level, spriteSheet }) {
   return (
     <React.Fragment>
       {allPlacements.map((placement) => {
-        const x = placement.x * CELL_SIZE + "px";
-        const y = placement.y * CELL_SIZE + "px";
+        const [x, y] = placement.calculatePosition();
         const style = {
           position: "absolute",
-          transform: `translate3d(${x}, ${y}, 0)`,
+          transform: `translate3d(${x}px, ${y}px, 0)`,
         };
 
         return (
