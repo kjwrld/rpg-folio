@@ -34,7 +34,6 @@ export class LevelState {
   }
 
   startGameLoop() {
-    this.gameLoop?.stop();
     this.gameLoop = new GameLoop(() => {
       this.tick();
     });
@@ -42,8 +41,9 @@ export class LevelState {
 
   tick() {
     if (this.directionControls.direction) {
-      this.hero.contollerMoveRequest(this.directionControls.direction);
+      this.hero.controllerMoveRequest(this.directionControls.direction);
     }
+    this.hero.tick();
     this.activePlacements.forEach((aP) => {
       aP.tick();
     });

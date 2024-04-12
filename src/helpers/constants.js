@@ -25,13 +25,13 @@ export const DIRECTION = {
 
 export const directionUpdateMap = {
   [DIRECTION.UP]: { x: 0, y: -1 },
-  [DIRECTION.UP_RIGHT]: { x: 1, y: -1 },
+  [DIRECTION.UP_RIGHT]: { x: 0.5, y: -0.5 },
   [DIRECTION.RIGHT]: { x: 1, y: 0 },
-  [DIRECTION.DOWN_RIGHT]: { x: 1, y: 1 },
+  [DIRECTION.DOWN_RIGHT]: { x: 0.5, y: 0.5 },
   [DIRECTION.DOWN]: { x: 0, y: 1 },
-  [DIRECTION.DOWN_LEFT]: { x: -1, y: 1 },
+  [DIRECTION.DOWN_LEFT]: { x: -0.5, y: 0.5 },
   [DIRECTION.LEFT]: { x: -1, y: 0 },
-  [DIRECTION.UP_LEFT]: { x: -1, y: -1 },
+  [DIRECTION.UP_LEFT]: { x: -0.5, y: -0.5 },
 };
 
 // export const THEME_MAP = {

@@ -1,7 +1,7 @@
 import Placement from "./Placement";
 import { HERO } from "../game-objects/objects";
 import Hero from "../components/object-graphics/Hero";
-import { directionUpdateMap } from "../helpers/constants";
+import { CELL_SIZE, directionUpdateMap } from "../helpers/constants";
 
 export class HeroPlacement extends Placement {
   static createPlacement(p) {
@@ -10,6 +10,8 @@ export class HeroPlacement extends Placement {
       console.error(`Hero "${p[0].id}" not found.`);
       return null;
     }
+
+    console.log("Creating HeroPlacement with:", p.x, p.y);
 
     return new HeroPlacement({
       ...p[0],
@@ -25,29 +27,43 @@ export class HeroPlacement extends Placement {
     this.updateMovementProgress();
   }
 
-  contollerMoveRequest(direction) {
+  controllerMoveRequest(direction) {
     if (this.movingPixelsRemaining > 0) {
       return;
     }
     this.movingPixelDirection = direction;
+    this.movingPixelsRemaining = CELL_SIZE;
+    console.log(
+      "Initiating move:",
+      direction,
+      "Pixels remaining:",
+      this.movingPixelsRemaining
+    );
   }
 
   updateMovementProgress() {
-    if (this.movingPixelsRemaining === 0) {
-      return;
+    if (this.movingPixelsRemaining <= 0) {
+      console.log("Movement completed");
+      return; // No movement to process
     }
     this.movingPixelsRemaining -= this.travelPixelsPerFrame;
+    console.log("Updating movement progress:", this.movingPixelsRemaining);
     if (this.movingPixelsRemaining <= 0) {
-      this.movingPixelsRemaining = 0; // Ensure we don't go negative.
+      this.movingPixelsRemaining = 0; // Ensure we don't go negative
       this.onDoneMoving();
     }
   }
 
   onDoneMoving() {
-    const { dx, dy } = directionUpdateMap[this.movingPixelDirection];
-    this.x += dx;
-    this.y += dy;
+    const { x, y } = directionUpdateMap[this.movingPixelDirection];
+    console.log(
+      "directionUpdateMap[this.movingPixelDirection]",
+      directionUpdateMap[this.movingPixelDirection]
+    );
+    this.x += x;
+    this.y += y;
     this.handlePossibleCollisions();
+    console.log("Moved to", this.x, this.y);
   }
 
   handlePossibleCollisions() {

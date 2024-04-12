@@ -62,7 +62,7 @@ export class DirectionControls {
       }
     }
 
-    console.log(this.heldDirections);
+    // console.log(this.heldDirections);
   }
 
   get direction() {
