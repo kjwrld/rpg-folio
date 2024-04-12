@@ -9,7 +9,29 @@ export const LEVEL_THEMES = {
 
 export const THEME_BACKGROUNDS = {
   [LEVEL_THEMES.bedroom]: "#2f2808",
-  [LEVEL_THEMES.office]: "#0D1D04",
+  [LEVEL_THEMES.office]: "#0D0D04",
+};
+
+export const DIRECTION = {
+  UP: "UP",
+  UP_RIGHT: "UPRIGHT",
+  RIGHT: "RIGHT",
+  DOWN_RIGHT: "DOWNRIGHT",
+  DOWN: "DOWN",
+  DOWN_LEFT: "DOWNLEFT",
+  LEFT: "LEFT",
+  UP_LEFT: "UPLEFT",
+};
+
+export const directionUpdateMap = {
+  [DIRECTION.UP]: { x: 0, y: -1 },
+  [DIRECTION.UP_RIGHT]: { x: 1, y: -1 },
+  [DIRECTION.RIGHT]: { x: 1, y: 0 },
+  [DIRECTION.DOWN_RIGHT]: { x: 1, y: 1 },
+  [DIRECTION.DOWN]: { x: 0, y: 1 },
+  [DIRECTION.DOWN_LEFT]: { x: -1, y: 1 },
+  [DIRECTION.LEFT]: { x: -1, y: 0 },
+  [DIRECTION.UP_LEFT]: { x: -1, y: -1 },
 };
 
 // export const THEME_MAP = {

@@ -18,7 +18,7 @@ const office_level = {
     { id: "computer", x: -1.5, y: 2.5 },
     { id: "seat", x: 0, y: 4.5 },
   ],
-  hero: [{ id: "DOWN_LEFT", x: 4, y: 1 }],
+  hero: [{ id: "DOWN_LEFT", x: 5, y: 7 }],
 };
 
 function App() {
