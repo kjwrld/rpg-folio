@@ -11,7 +11,7 @@ export default class Placement {
     this.size = size;
     this.active = active; // might use this to distinguish interactive objects
 
-    this.travelPixelsPerFrame = 4;
+    this.travelPixelsPerFrame = 3;
     this.movingPixelsRemaining = 0;
     this.movingPixelDirection = DIRECTION.DOWN;
   }

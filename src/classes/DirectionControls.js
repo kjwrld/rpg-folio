@@ -61,8 +61,6 @@ export class DirectionControls {
         this.heldDirections.push(DIRECTION.LEFT);
       }
     }
-
-    // console.log(this.heldDirections);
   }
 
   get direction() {
