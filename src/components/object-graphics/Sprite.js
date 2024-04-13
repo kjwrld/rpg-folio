@@ -31,7 +31,6 @@ export function Sprite({
     if (reverse) {
       ctx.scale(-1, 1); // Flip the context horizontally
       ctx.translate(-size, 0); // Move the context back into the visible canvas area
-      console.log("that shit is reverse fr");
     }
 
     ctx.drawImage(
