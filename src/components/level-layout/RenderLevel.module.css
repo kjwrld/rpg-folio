@@ -18,5 +18,5 @@
   height: var(--game-viewport-height);
   position: relative; /* Positioned relative to .fullScreenContainer */
   overflow: visible; /* This will ensure content can extend outside */
-  transition: transform 0.2s ease-out;
+  /* transition: transform 0.02s ease-out; */
 }
