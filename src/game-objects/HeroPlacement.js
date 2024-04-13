@@ -18,11 +18,19 @@ export class HeroPlacement extends Placement {
   }
 
   renderComponent() {
-    return <Hero direction={this.movingPixelDirection} />;
+    [this.frameCoord, this.reverse] = this.getFrame();
+    return <Hero frameCoord={this.frameCoord} reverse={this.reverse} />;
   }
 
   tick() {
     this.updateMovementProgress();
+  }
+
+  getFrame() {
+    return [
+      HERO.MOTION[this.movingPixelDirection][0].frameCoord,
+      HERO.MOTION[this.movingPixelDirection][0].reverse,
+    ];
   }
 
   controllerMoveRequest(direction) {

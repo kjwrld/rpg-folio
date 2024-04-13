@@ -3,13 +3,14 @@ import { GAME_OBJECTS } from "./objects";
 import { Sprite } from "../components/object-graphics/Sprite";
 
 export default class Placement {
-  constructor({ id, x, y, frameCoord, size, active = null }) {
+  constructor({ id, x, y, frameCoord, size, active = null, reverse = false }) {
     this.id = id;
     this.x = x;
     this.y = y;
     this.frameCoord = frameCoord;
     this.size = size;
     this.active = active; // might use this to distinguish interactive objects
+    this.reverse = reverse;
 
     this.travelPixelsPerFrame = 6;
     this.movingPixelsRemaining = 0;
