@@ -12,7 +12,7 @@ export default class Placement {
     this.active = active; // might use this to distinguish interactive objects
     this.reverse = reverse;
 
-    this.travelPixelsPerFrame = 4;
+    this.travelPixelsPerFrame = 6;
     this.movingPixelsRemaining = 0;
     this.movingPixelDirection = DIRECTION.DOWN;
   }

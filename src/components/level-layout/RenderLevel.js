@@ -7,17 +7,29 @@ import { LevelState } from "../../classes/LevelState";
 export default function RenderLayer({ level, spriteSheet, background }) {
   const [levelState, setLevelState] = useState(null);
   const levelStateRef = useRef();
+  const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     if (!levelStateRef.current) {
       levelStateRef.current = new LevelState(level, (newState) => {
         setLevelState(newState);
+        updateOffset(newState);
       });
       levelStateRef.current.initializeState(level.placements, level.hero);
       setLevelState(levelStateRef.current.getState());
     }
 
-    // TODO: listeners or game loop here for levelStateRef.current.moveObject
+    function updateOffset(state) {
+      if (state && state.hero) {
+        const heroPos = state.hero.calculatePosition();
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        setOffset({
+          x: centerX - heroPos[0],
+          y: centerY - heroPos[1],
+        });
+      }
+    }
 
     return () => {
       levelStateRef.current.destroy();
@@ -33,12 +45,19 @@ export default function RenderLayer({ level, spriteSheet, background }) {
       className={styles.fullScreenContainer}
       style={{ background: levelState.theme }}
     >
-      <div className={styles.gameScreen}>
-        <LevelBackgroundLayer
-          level={levelState}
-          background={levelState.background}
-        />
-        <LevelPlacementsLayer level={levelState} spriteSheet={spriteSheet} />
+      <div className={styles.gameScreenScaling}>
+        <div
+          className={styles.gameScreen}
+          style={{
+            transform: `translate(${offset.x}px, ${offset.y}px)`,
+          }}
+        >
+          <LevelBackgroundLayer
+            level={levelState}
+            background={levelState.background}
+          />
+          <LevelPlacementsLayer level={levelState} spriteSheet={spriteSheet} />
+        </div>
       </div>
     </div>
   );

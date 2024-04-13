@@ -1,5 +1,5 @@
 .fullScreenContainer {
-  align-items: center;
+  /* align-items: center; */
   display: flex;
   inset: 0;
   justify-content: center;
@@ -7,11 +7,16 @@
   overflow: hidden;
 }
 
+.gameScreenScaling {
+  width: 100%; /* Take the full size of the parent */
+  height: 100%; /* Take the full size of the parent */
+  transform: scale(var(--pixel-size));
+}
+
 .gameScreen {
   width: var(--game-viewport-width);
   height: var(--game-viewport-height);
-  transform: scale(var(--pixel-size));
-  /* outline: 2px solid red; */
   position: relative; /* Positioned relative to .fullScreenContainer */
   overflow: visible; /* This will ensure content can extend outside */
+  transition: transform 0.2s ease-out;
 }
