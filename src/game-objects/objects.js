@@ -75,7 +75,7 @@ export const HERO = {
       { frameCoord: "4x20" },
     ],
   },
-  STARTING: [{ frameCoord: "0x10", size: 32, active: true }],
+  STARTING: [{ frameCoord: "0x2" }],
 };
 
 export const GAME_OBJECTS = {

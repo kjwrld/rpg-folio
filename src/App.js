@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import RenderLayer from "./components/level-layout/RenderLevel.js";
-import { HERO } from "./game-objects/objects.js";
 
 import {
   SPRITE_SHEET_SRC,

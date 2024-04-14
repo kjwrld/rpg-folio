@@ -7,8 +7,7 @@ export class HeroPlacement extends Placement {
   constructor(properties) {
     super(properties);
     this.frameIndex = 0; // Index to track the current frame of the animation
-    this.frameMax = HERO.MOTION[this.movingPixelDirection].length;
-    this.frameDelay = 1; // Number of ticks to wait before changing frames
+    this.frameDelay = 60; // Number of ticks to wait before changing frames
     this.frameDelayCounter = 0; // Counter to track ticks
   }
 
@@ -53,6 +52,7 @@ export class HeroPlacement extends Placement {
       return;
     }
     this.movingPixelDirection = direction;
+    this.frameMax = HERO.MOTION[this.movingPixelDirection].length;
     this.isMoving = true;
     this.movingPixelsRemaining = CELL_SIZE;
     this.frameIndex = 0; // Reset frame index on direction change
@@ -72,13 +72,15 @@ export class HeroPlacement extends Placement {
   }
 
   updateAnimationFrame() {
-    if (this.isMoving || this.frameIndex === 0) {
+    if (this.isMoving) {
+      this.frameDelayCounter++;
+      this.frameIndex = this.frameDelayCounter - 1;
       if (this.frameDelayCounter >= this.frameDelay) {
-        this.frameIndex++;
-        this.frameDelayCounter = 0; // Reset the counter
-      } else {
-        this.frameDelayCounter++; // Increment the counter
+        this.frameDelayCounter = 0;
       }
+    } else {
+      // If not moving, set the frame to the first frame of the STANDING animation
+      this.frameIndex = 0;
     }
   }
 
