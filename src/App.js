@@ -38,11 +38,16 @@ function App() {
   }
 
   return (
-    <RenderLayer
-      level={office_level}
-      spriteSheet={spriteSheet}
-      background={office_level.background}
-    />
+    <>
+      <RenderLayer
+        level={office_level}
+        spriteSheet={spriteSheet}
+        background={office_level.background}
+      />
+      <div>
+        <p>Text box at the bottom</p>
+      </div>
+    </>
   );
 }
 
