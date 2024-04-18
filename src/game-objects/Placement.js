@@ -3,7 +3,11 @@ import { GAME_OBJECTS } from "./objects";
 import { Sprite } from "../components/object-graphics/Sprite";
 
 export default class Placement {
-  constructor({ id, x, y, frameCoord, size, active = null, reverse = false }) {
+  constructor(
+    { id, x, y, frameCoord, size, active = null, reverse = false },
+    levelState
+  ) {
+    this.levelState = levelState;
     this.id = id;
     this.x = x;
     this.y = y;
@@ -26,9 +30,7 @@ export default class Placement {
       console.error(`GameObject "${p.id}" not found.`);
       return null;
     }
-
     const baseX = Placement.parseFrameCoord(objectConfig[0].frameCoord).x;
-
     return objectConfig.map((obj, index) => {
       const { x: objX } = Placement.parseFrameCoord(obj.frameCoord);
       const xOffset = objX - baseX;

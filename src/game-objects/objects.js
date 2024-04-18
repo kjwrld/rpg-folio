@@ -36,10 +36,16 @@ export const HERO = {
     ],
     DOWNRIGHT: [
       { frameCoord: "0x10", reverse: true },
+      { frameCoord: "0x10", reverse: true },
+      { frameCoord: "2x10", reverse: true },
       { frameCoord: "2x10", reverse: true },
       { frameCoord: "4x10", reverse: true },
+      { frameCoord: "4x10", reverse: true },
+      { frameCoord: "0x14", reverse: true },
       { frameCoord: "0x14", reverse: true },
       { frameCoord: "2x14", reverse: true },
+      { frameCoord: "2x14", reverse: true },
+      { frameCoord: "4x14", reverse: true },
       { frameCoord: "4x14", reverse: true },
     ],
     DOWN: [

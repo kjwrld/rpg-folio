@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-function LevelBackgroundLayer({ level, background }) {
+function LevelBackgroundLayer({ background, onLoad }) {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -12,10 +12,13 @@ function LevelBackgroundLayer({ level, background }) {
       // Resize the canvas to the size of the image
       canvas.width = backgroundImage.naturalWidth;
       canvas.height = backgroundImage.naturalHeight;
+      if (onLoad) {
+        onLoad(backgroundImage.naturalWidth, backgroundImage.naturalHeight);
+      }
       ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
     };
-    backgroundImage.src = background;
-  }, [background]);
+    backgroundImage.src = background.src;
+  }, [background, onLoad]);
 
   return (
     <canvas

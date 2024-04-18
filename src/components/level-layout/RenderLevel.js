@@ -9,6 +9,14 @@ export default function RenderLayer({ level, spriteSheet, background }) {
   const levelStateRef = useRef();
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
+  const handleBackgroundLoad = (width, height) => {
+    if (levelStateRef.current) {
+      levelStateRef.current.updateBackgroundSize(width, height);
+      // Optionally update offset here if needed
+      // updateOffset(levelStateRef.current.getState());
+    }
+  };
+
   useEffect(() => {
     if (!levelStateRef.current) {
       levelStateRef.current = new LevelState(level, (newState) => {
@@ -53,8 +61,8 @@ export default function RenderLayer({ level, spriteSheet, background }) {
           }}
         >
           <LevelBackgroundLayer
-            level={levelState}
             background={levelState.background}
+            onLoad={handleBackgroundLoad}
           />
           <LevelPlacementsLayer level={levelState} spriteSheet={spriteSheet} />
         </div>

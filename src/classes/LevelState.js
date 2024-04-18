@@ -7,19 +7,41 @@ export class LevelState {
   constructor(level, onEmit) {
     this.id = level.id;
     this.theme = level.theme;
-    this.background = level.background;
+    this.background = {
+      src: level.background.src,
+      width: level.background.width || 0,
+      height: level.background.height || 0,
+    };
     this.onEmit = onEmit;
     this.directionControls = new DirectionControls();
     this.initializeState(level.placements, level.hero);
   }
 
   initializeState(placements, hero) {
-    this.hero = HeroPlacement.createPlacement(hero);
+    this.hero = HeroPlacement.createPlacement(hero, this);
     this.placements = placements
       .flatMap(Placement.createPlacement)
       .filter(Boolean);
     this.activePlacements = this.placements.filter((p) => p.active);
+    console.log("gotta make sure these are correct", this.background.width);
     this.startGameLoop();
+  }
+
+  isPositionOutOfBounds(x, y) {
+    // Ensure the boundary check uses the updated dimensions
+    // console.log(
+    //   "so is it out of bounds?",
+    //   x < 0 || y < 0 || x > this.background.width || y > this.background.height
+    // );
+    return (
+      x < 0 || y < 0 || x > this.background.width || y > this.background.height
+    );
+  }
+
+  updateBackgroundSize(width, height) {
+    this.background.width = width;
+    this.background.height = height;
+    this.onEmit(this.getState());
   }
 
   getState() {

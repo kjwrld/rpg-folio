@@ -7,7 +7,7 @@ export class HeroPlacement extends Placement {
   constructor(properties) {
     super(properties);
     this.frameIndex = 0; // Index to track the current frame of the animation
-    this.frameDelay = 60; // Number of ticks to wait before changing frames
+    this.frameDelay = 6; // Number of ticks to wait before changing frames
     this.frameDelayCounter = 0; // Counter to track ticks
   }
 
@@ -51,11 +51,34 @@ export class HeroPlacement extends Placement {
     if (this.movingPixelsRemaining > 0) {
       return;
     }
+    const canMove = this.canMoveToNextDestination(direction);
+    if (!canMove) {
+      return;
+    }
+
     this.movingPixelDirection = direction;
     this.frameMax = HERO.MOTION[this.movingPixelDirection].length;
     this.isMoving = true;
     this.movingPixelsRemaining = CELL_SIZE;
     this.frameIndex = 0; // Reset frame index on direction change
+  }
+
+  canMoveToNextDestination(direction) {
+    // Is the next space in bounds?
+    console.log("this.levelState", this.levelState);
+    const { x, y } = directionUpdateMap[direction];
+    const isOutOfBounds = this.levelState?.isPositionOutOfBounds(
+      this.x + x,
+      this.y + y
+    );
+    console.log("isOutOfBounds", isOutOfBounds);
+    if (isOutOfBounds) {
+      return false;
+    }
+    // Is there a solid thing here?
+    //
+    //
+    return true;
   }
 
   updateMovementProgress() {
@@ -79,7 +102,6 @@ export class HeroPlacement extends Placement {
         this.frameDelayCounter = 0;
       }
     } else {
-      // If not moving, set the frame to the first frame of the STANDING animation
       this.frameIndex = 0;
     }
   }

@@ -10,7 +10,7 @@ import {
 const office_level = {
   id: "office",
   theme: THEME_BACKGROUNDS["office"],
-  background: BACKGROUND_SHEET_SRC,
+  background: { src: BACKGROUND_SHEET_SRC, width: 0, height: 0 },
   placements: [
     { id: "mona", x: 8, y: 2.5 },
     { id: "blueprint", x: -0.5, y: 1.25 },
